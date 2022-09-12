@@ -42,6 +42,8 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
         System.out.println("usr = " + usr);
 
+
+
         TodoItem todo = new TodoItem("Todo","Something todo", LocalDateTime.now());
         todoDao.save(todo);
     }

@@ -17,7 +17,7 @@ public class AppUser {
     boolean active = true;
     String password;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Address> addresses = new ArrayList<Address>();
 
     public List<Address> getAddresses() {
@@ -110,6 +110,7 @@ public class AppUser {
                 ", birthDate=" + birthDate +
                 ", active=" + active +
                 ", password='" + password + '\'' +
+                ", addresses=" + addresses +
                 '}';
     }
 }
