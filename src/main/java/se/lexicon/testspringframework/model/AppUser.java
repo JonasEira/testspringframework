@@ -1,12 +1,9 @@
 package se.lexicon.testspringframework.model;
 
-import org.springframework.context.annotation.Primary;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class AppUser {
@@ -19,6 +16,21 @@ public class AppUser {
     LocalDate birthDate;
     boolean active = true;
     String password;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Address> addresses = new ArrayList<Address>();
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> address) {
+        this.addresses = address;
+    }
+
+    public void addAdress(Address a){
+        this.addresses.add(a);
+    }
 
     public AppUser() {}
 
